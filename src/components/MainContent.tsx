@@ -12,7 +12,7 @@ import {
 
 export default function MainContent() {
     const plugin = React.useRef(
-        Autoplay({ delay: 100, stopOnInteraction: true })
+        Autoplay({delay: 4000, stopOnInteraction: true})
     )
 
     return (
@@ -23,7 +23,8 @@ export default function MainContent() {
             onMouseLeave={plugin.current.reset}
         >
             <CarouselContent>
-                {
+                {[
+
                     (
                         <CarouselItem key={0}>
                             <div className="p-1 text-center">
@@ -41,11 +42,54 @@ export default function MainContent() {
                                 </Card>
                             </div>
                         </CarouselItem>
+                    ),
+                    (
+                        <CarouselItem key={1}>
+                            <div className="p-1 text-center">
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle className={"text-2xl"}>🗓️ When are the meetings? 🗓️</CardTitle>
+                                        <CardDescription>Dates</CardDescription>
+                                    </CardHeader>
+                                    <CardContent>
+                                        Our meeting dates are currently <strong>TBD</strong>.&nbsp;
+                                        Join our <strong>Remind</strong> to stay updated!
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </CarouselItem>
+                    ),
+                    (
+                        <CarouselItem key={2}>
+                            <div className="p-1 text-center">
+                                <Card>
+                                    <CardHeader>
+                                        <CardTitle className={"text-2xl"}>📱 Where can I stay updated? 📱</CardTitle>
+                                        <CardDescription>Socials</CardDescription>
+                                    </CardHeader>
+                                    <CardContent>
+                                        Follow our&nbsp;
+                                        <strong>
+                                            <a href={"https://www.instagram.com/crhssciteach/"}
+                                            className={"text-blue-400 visited:text-blue-400 hover:underline"}>Instagram</a>
+                                        </strong>
+                                        &nbsp;and join us on&nbsp;
+                                        <strong>
+                                            <a href={"https://www.remind.com/join/crsciteach"}
+                                               className={"text-blue-400 visited:text-blue-400 hover:underline"}>
+                                                Remind
+                                            </a>&nbsp;
+                                        </strong>
+                                        using the link or texting <strong>@crsciteach</strong> to <strong>81010</strong>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </CarouselItem>
                     )
-                }
+                ]}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious/>
+            <CarouselNext/>
         </Carousel>
     )
 }
